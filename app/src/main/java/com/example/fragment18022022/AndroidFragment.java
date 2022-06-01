@@ -18,6 +18,12 @@ public class AndroidFragment extends Fragment {
     TextView tvTitle;
     View view;
     Random random;
+    String input;
+
+    public void setParams(String input){
+        this.input = input;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -25,6 +31,9 @@ public class AndroidFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_android, container, false);
         relativeLayout = view.findViewById(R.id.relative_android);
         tvTitle = view.findViewById(R.id.text_view_android_fragment);
+        if (!input.isEmpty()) {
+            tvTitle.setText(input);
+        }
         random = new Random();
         relativeLayout.setBackgroundColor(Color.rgb(random.nextInt() + 1, random.nextInt() + 1, random.nextInt() + 1));
         return view;
