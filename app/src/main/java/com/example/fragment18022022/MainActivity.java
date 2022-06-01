@@ -27,12 +27,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String input = edtInput.getText().toString();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                AndroidFragment androidFragment = new AndroidFragment();
-                androidFragment.setParams(input);
-                fragmentTransaction.add(R.id.linear_container, androidFragment, "android_fragment");
-                fragmentTransaction.addToBackStack("fragment_android");
-                fragmentTransaction.commit();
+                AndroidFragment androidFragment = (AndroidFragment) fragmentManager.findFragmentById(R.id.fragment_android);
+                if (androidFragment != null) {
+                    androidFragment.setOnListenParams(input);
+                }
             }
         });
     }

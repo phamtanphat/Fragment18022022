@@ -12,16 +12,17 @@ import androidx.fragment.app.Fragment;
 
 import java.util.Random;
 
-public class AndroidFragment extends Fragment {
+public class AndroidFragment extends Fragment implements OnListenParams {
 
     RelativeLayout relativeLayout;
     TextView tvTitle;
     View view;
     Random random;
-    String input;
+    OnListenParams onListenParams;
 
-    public void setParams(String input){
-        this.input = input;
+    public void setOnListenParams(String data) {
+        onListenParams = this;
+        onListenParams.onDataChanges(data);
     }
 
     @Override
@@ -31,12 +32,15 @@ public class AndroidFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_android, container, false);
         relativeLayout = view.findViewById(R.id.relative_android);
         tvTitle = view.findViewById(R.id.text_view_android_fragment);
-        if (!input.isEmpty()) {
-            tvTitle.setText(input);
-        }
         random = new Random();
         relativeLayout.setBackgroundColor(Color.rgb(random.nextInt() + 1, random.nextInt() + 1, random.nextInt() + 1));
         return view;
     }
 
+    @Override
+    public void onDataChanges(String data) {
+        if (!data.isEmpty()) {
+            tvTitle.setText(data);
+        }
+    }
 }

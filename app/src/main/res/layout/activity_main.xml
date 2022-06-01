@@ -21,11 +21,11 @@
          android:layout_gravity="center"
          android:text="Send data Fragment" />
 
-     <LinearLayout
-         android:orientation="vertical"
-         android:layout_marginTop="10dp"
-         android:id="@+id/linear_container"
+     <fragment
+         tools:layout="@layout/fragment_android"
+         android:name="com.example.fragment18022022.AndroidFragment"
+         android:id="@+id/fragment_android"
          android:layout_width="match_parent"
-         android:layout_height="wrap_content"/>
+         android:layout_height="match_parent"/>
 
 </LinearLayout>
