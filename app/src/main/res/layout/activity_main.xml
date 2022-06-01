@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-<!--    <Button-->
-<!--        android:id="@+id/button_add_android_fragment"-->
-<!--        android:text="Add Android Fragment"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"/>-->
+     <Button
+         android:id="@+id/button_add_android_fragment"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:text="Add Android Fragment" />
 
-     <fragment
-         android:name="com.example.fragment18022022.AndroidFragment"
-         android:id="@+id/fragment_android"
+     <Button
+         android:id="@+id/button_delete_android_fragment"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:text="Delete Android Fragment" />
+
+     <LinearLayout
+         android:orientation="vertical"
+         android:id="@+id/linear_container"
          android:layout_width="match_parent"
-         android:layout_height="match_parent"/>
+         android:layout_height="wrap_content"/>
 
 </LinearLayout>
