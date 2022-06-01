@@ -6,22 +6,24 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-     <Button
-         android:id="@+id/button_add_android_fragment"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_gravity="center"
-         android:text="Add Android Fragment" />
+     <EditText
+         android:id="@+id/edittext_main"
+         android:layout_marginTop="10dp"
+         android:hint="Input text"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" />
 
      <Button
-         android:id="@+id/button_delete_android_fragment"
+         android:layout_marginTop="10dp"
+         android:id="@+id/button_send_data"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_gravity="center"
-         android:text="Delete Android Fragment" />
+         android:text="Send data Fragment" />
 
      <LinearLayout
          android:orientation="vertical"
+         android:layout_marginTop="10dp"
          android:id="@+id/linear_container"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"/>
