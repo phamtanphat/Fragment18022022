@@ -1,12 +1,12 @@
 package com.example.fragment18022022;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 AndroidFragment androidFragment = new AndroidFragment();
-                fragmentTransaction.add(R.id.linear_container, androidFragment,"android_fragment");
+                fragmentTransaction.add(R.id.linear_container, androidFragment, "android_fragment");
+                fragmentTransaction.addToBackStack("fragment_android");
                 fragmentTransaction.commit();
             }
         });
@@ -34,12 +35,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AndroidFragment androidFragment = (AndroidFragment) fragmentManager.findFragmentByTag("android_fragment");
-                if (androidFragment != null){
+                if (androidFragment != null) {
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.remove(androidFragment);
                     fragmentTransaction.commit();
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (fragmentManager.getFragments().size() > 0) {
+            fragmentManager.popBackStack();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
